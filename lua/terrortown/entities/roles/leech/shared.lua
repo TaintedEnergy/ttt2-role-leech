@@ -50,7 +50,7 @@ if SERVER then
     -- Find any Leechs that arn't feeding and prevent a win
     for _, ply in ipairs(player.GetAll()) do
       if not IsValid(ply) or not ply:Alive() then continue end
-			if SpecDM and (ply.IsGhost and ply:IsGhost() or (vics.IsGhost and vics:IsGhost())) then continue end
+      if SpecDM and (ply.IsGhost and ply:IsGhost()) then continue end
 
       if ply:GetSubRole() == ROLE_LEECH and ply.leechChange < 0 then
         table.insert(alives, "leech")
