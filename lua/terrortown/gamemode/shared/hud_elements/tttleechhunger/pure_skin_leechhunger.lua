@@ -18,9 +18,12 @@ if CLIENT then -- CLIENT
     BaseClass.PreInitialize(self)
 
     local hud = huds.GetStored("pure_skin")
-    if not hud then return end
+		if hud then
+			hud:ForceElement(self.id)
+		end
 
-    hud:ForceElement(self.id)
+		-- set as fallback default, other skins have to be set to true!
+		self.disabledUnlessForced = false
   end
 
   function HUDELEMENT:Initialize()
