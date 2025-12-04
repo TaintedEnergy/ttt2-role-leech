@@ -67,7 +67,7 @@ if SERVER then
 	-- Find all Leechs and turn them to the winning team
 		for _, ply in ipairs(player.GetAll()) do
 			if not IsValid(ply) or not ply:Alive() then continue end
-			if SpecDM and (ply.IsGhost and ply:IsGhost() or (vics.IsGhost and vics:IsGhost())) then continue end
+			if SpecDM and (ply.IsGhost and ply:IsGhost()) then continue end
 
 			if ply:GetSubRole() == ROLE_LEECH and ply.leechChange >= 0 then
 				ply:UpdateTeam(winningTeam, false)
@@ -83,7 +83,7 @@ if SERVER then
 
 		for _, ply in ipairs(player.GetAll()) do
 			if not IsValid(ply) or not ply:Alive() or ply:IsSpec() then continue end
-			if SpecDM and (ply.IsGhost and ply:IsGhost() or (vics.IsGhost and vics:IsGhost())) then continue end
+			if SpecDM and (ply.IsGhost and ply:IsGhost()) then continue end
 			if ply:GetSubRole() == ROLE_LEECH then continue end
 
 			table.insert(hostPoses, ply:GetPos())
@@ -92,7 +92,7 @@ if SERVER then
 		-- Foreach leech
 		for _, ply in ipairs(player.GetAll()) do
 			if not IsValid(ply) or not ply:Alive() or ply:IsSpec() then continue end
-			if SpecDM and (ply.IsGhost and ply:IsGhost() or (vics.IsGhost and vics:IsGhost())) then continue end
+			if SpecDM and (ply.IsGhost and ply:IsGhost()) then continue end
 			if ply:GetSubRole() ~= ROLE_LEECH then continue end
 
 			if not ply.leechHungerTime then ply.leechHungerTime = CurTime() + GetConVar("ttt2_leech_tick_length"):GetFloat() end
